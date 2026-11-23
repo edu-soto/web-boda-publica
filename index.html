@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ca" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El nostre Casament | 30 de Gener de 2027</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cream: '#FAF8F5',
+              sand: '#F2EDE4',
+              sage: '#5E6D5B',
+              'sage-light': '#E9ECE8',
+              'sage-dark': '#3F4B3C',
+              gold: '#C5A880',
+              charcoal: '#222220',
+              muted: '#686662'
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom subtle styling */
+    body {
+      background-color: #FAF8F5;
+      color: #222220;
+    }
+    .floral-divider {
+      background-image: radial-gradient(circle, #5E6D5B 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+
+    /* ---- Full-screen responsive sections ---- */
+    html {
+      scroll-padding-top: 4rem;        /* sticky header height */
+      scroll-snap-type: y proximity;   /* gentle snapping, never traps scrolling */
+    }
+    .screen {
+      min-height: calc(100vh - 4rem);   /* fallback */
+      min-height: calc(100svh - 4rem);  /* real visible height on mobile browsers */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      scroll-snap-align: start;
+    }
+    .screen > * { width: 100%; }        /* keep inner containers full width in the flex column */
+    .screen-end { justify-content: flex-end; }
+  </style>
+</head>
+<body class="font-sans antialiased text-brand-charcoal bg-brand-cream selection:bg-brand-sage-light selection:text-brand-sage-dark">
+
+  <!-- TOP NOTIFICATION / QUICK LANGUAGE & RSVP BAR -->
+  <header class="sticky top-0 z-50 bg-brand-cream/90 backdrop-blur-md border-b border-brand-sand transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <!-- Monogram / Couple Logo -->
+      <a href="#hero" class="font-serif text-2xl tracking-widest text-brand-sage-dark hover:text-brand-sage transition font-semibold">
+        <span data-i18n="nav.monogram">A &amp; E</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
+        <a href="#programa" class="text-brand-charcoal hover:text-brand-sage transition" data-i18n="nav.schedule">Programa</a>
+        <a href="#ubicacions" class="text-brand-charcoal hover:text-brand-sage transition" data-i18n="nav.locations">Ubicacions</a>
+        <a href="#dresscode" class="text-brand-charcoal hover:text-brand-sage transition" data-i18n="nav.dresscode">Vestimenta</a>
+        <a href="#regals" class="text-brand-charcoal hover:text-brand-sage transition" data-i18n="nav.gifts">Regals</a>
+        <a href="#rsvp" class="text-brand-charcoal hover:text-brand-sage transition" data-i18n="nav.rsvp">RSVP</a>
+      </nav>
+
+      <!-- Language Selector & RSVP CTA -->
+      <div class="flex items-center space-x-3">
+        <!-- Language Switcher Pill -->
+        <div class="inline-flex rounded-full p-0.5 bg-brand-sand border border-brand-sand/80 text-xs font-semibold">
+          <button id="lang-ca" onclick="setLanguage('ca')" class="px-3 py-1 rounded-full transition-all duration-200 bg-brand-sage text-white shadow-sm">
+            CA
+          </button>
+          <button id="lang-es" onclick="setLanguage('es')" class="px-3 py-1 rounded-full transition-all duration-200 text-brand-muted hover:text-brand-charcoal">
+            ES
+          </button>
+        </div>
+
+        <!-- RSVP Button (Links to Google Forms) -->
+        <a href="#rsvp" class="hidden sm:inline-flex items-center justify-center px-4 py-1.5 rounded-full text-xs uppercase tracking-wider font-semibold bg-brand-sage text-white hover:bg-brand-sage-dark transition shadow-sm">
+          <span data-i18n="nav.rsvp_cta">Confirmar</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 text-brand-charcoal focus:outline-none" aria-label="Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-brand-cream border-b border-brand-sand px-6 py-4 space-y-3 text-sm">
+      <a href="#programa" onclick="toggleMobileMenu()" class="block text-brand-charcoal hover:text-brand-sage" data-i18n="nav.schedule">Programa</a>
+      <a href="#ubicacions" onclick="toggleMobileMenu()" class="block text-brand-charcoal hover:text-brand-sage" data-i18n="nav.locations">Ubicacions</a>
+      <a href="#dresscode" onclick="toggleMobileMenu()" class="block text-brand-charcoal hover:text-brand-sage" data-i18n="nav.dresscode">Vestimenta</a>
+      <a href="#regals" onclick="toggleMobileMenu()" class="block text-brand-charcoal hover:text-brand-sage" data-i18n="nav.gifts">Regals</a>
+      <a href="#rsvp" onclick="toggleMobileMenu()" class="block text-brand-sage font-semibold" data-i18n="nav.rsvp">Confirmació (RSVP)</a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION WITH PLAYA BACKGROUND (LIGHT & LUMINOUS) -->
+  <section id="hero" class="screen relative items-center text-center px-4 py-16 sm:py-20 bg-cover overflow-hidden" style="background-image: url('assets/playa.jpeg'); background-position: 25% 30%;">
+    
+    <!-- Light & subtle overlay to keep sunset bright while keeping text legible -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-black/10 to-black/30"></div>
+
+    <div class="relative z-10 max-w-2xl mx-auto space-y-4 sm:space-y-5">
+      
+      <!-- Couple Names Heading -->
+      <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-wide text-white leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+        <span class="block" data-i18n="hero.names">Alegria &amp; Edu</span>
+      </h1>
+      
+      <!-- Top Decorative Tagline -->
+      <div class="inline-block">
+        <span class="text-xs uppercase tracking-[0.25em] text-white font-medium px-4 py-1 rounded-full bg-black/20 backdrop-blur-md border border-white/30 shadow-sm" data-i18n="hero.tagline">
+          Ens casem! · ¡Nos casamos!
+        </span>
+      </div>
+
+      <!-- Date & Key Locations Summary Badge -->
+      <div class="pt-1 flex flex-col sm:flex-row items-center justify-center gap-2.5 text-xs sm:text-sm text-white">
+        <div class="flex items-center gap-2 bg-black/25 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/25 shadow-sm">
+          <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span class="font-medium" data-i18n="hero.date">Dissabte, 30 de Gener de 2027</span>
+        </div>
+        <div class="flex items-center gap-2 bg-black/25 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/25 shadow-sm">
+          <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <span class="font-medium" data-i18n="hero.cities">Barcelona &amp; La Garriga</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="pt-2 flex flex-wrap items-center justify-center gap-3">
+        <a href="#rsvp" class="px-7 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wider uppercase bg-brand-sage text-white hover:bg-brand-sage-dark transition shadow-lg hover:shadow-xl">
+          <span data-i18n="hero.rsvp_btn">Confirmar Assistència</span>
+        </a>
+      </div>
+
+      <!-- DISCRETE COMPACT COUNTDOWN (Leaves faces visible!) -->
+      <div class="pt-3">
+        <div class="inline-flex items-center gap-2 sm:gap-3 bg-black/30 backdrop-blur-md border border-white/25 px-4 sm:px-5 py-2 rounded-full text-white text-xs sm:text-sm font-medium shadow-sm">
+          <svg class="w-3.5 h-3.5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span><strong id="days" class="font-semibold text-white">--</strong> <span class="text-white/85 text-[11px] sm:text-xs uppercase" data-i18n="timer.days">dies</span></span>
+          <span class="text-white/40">·</span>
+          <span><strong id="hours" class="font-semibold text-white">--</strong> <span class="text-white/85 text-[11px] sm:text-xs uppercase" data-i18n="timer.hours">h</span></span>
+          <span class="text-white/40">·</span>
+          <span><strong id="minutes" class="font-semibold text-white">--</strong> <span class="text-white/85 text-[11px] sm:text-xs uppercase" data-i18n="timer.minutes">m</span></span>
+          <span class="text-white/40">·</span>
+          <span><strong id="seconds" class="font-semibold text-white">--</strong> <span class="text-white/85 text-[11px] sm:text-xs uppercase" data-i18n="timer.seconds">s</span></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROGRAM / SCHEDULE OF THE DAY -->
+  <section id="programa" class="screen py-20 bg-brand-sand/40 border-y border-brand-sand px-4">
+    <div class="max-w-4xl mx-auto">
+      
+      <div class="text-center space-y-2 mb-16">
+        <p class="text-xs uppercase tracking-[0.2em] text-brand-sage font-semibold" data-i18n="schedule.section_tag">El dia del casament</p>
+        <h2 class="font-serif text-4xl sm:text-5xl text-brand-charcoal font-light" data-i18n="schedule.title">El Programa</h2>
+        <p class="text-sm text-brand-muted max-w-md mx-auto" data-i18n="schedule.subtitle">
+          Els horaris clau de la celebració per acompanyar-nos en cada moment
+        </p>
+      </div>
+
+      <!-- Timeline Cards -->
+      <div class="relative border-l-2 border-brand-sage/30 ml-4 sm:ml-32 space-y-12">
+        
+        <!-- STEP 1: CEREMONY -->
+        <div class="relative pl-8 sm:pl-12 group">
+          <!-- Dot Marker -->
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-cream border-4 border-brand-sage group-hover:scale-125 transition-transform"></div>
+          
+          <!-- Time pill for desktop / mobile -->
+          <div class="sm:absolute sm:-left-32 sm:top-0 sm:text-right sm:w-24 mb-1">
+            <span class="inline-block px-2.5 py-1 rounded-md text-xs font-semibold bg-brand-sage-light text-brand-sage-dark sm:bg-transparent sm:p-0 sm:text-base sm:font-serif">
+              12:00 h
+            </span>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-brand-sand space-y-3">
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <h3 class="font-serif text-2xl text-brand-charcoal font-medium" data-i18n="schedule.item1.title">
+                La Cerimònia Religiosa
+              </h3>
+              <span class="text-xs uppercase tracking-wider text-brand-sage font-semibold bg-brand-cream px-3 py-1 rounded-full border border-brand-sand" data-i18n="schedule.item1.badge">
+                Barcelona
+              </span>
+            </div>
+            
+            <p class="text-sm font-medium text-brand-charcoal">
+              <strong data-i18n="schedule.item1.venue">Església de la Mare de Déu de Pompeia</strong>
+            </p>
+            <p class="text-xs text-brand-muted">Av. Diagonal, 450, 08006 Barcelona</p>
+
+            <p class="text-sm text-brand-muted leading-relaxed pt-1" data-i18n="schedule.item1.desc">
+              Ens donarem el "sí, vull" a la cèntrica església modernista dels Caputxins. Preguem puntualitat perquè la cerimònia començarà puntualment a les 12:00h.
+            </p>
+
+            <div class="pt-2 flex flex-wrap gap-3">
+              <a href="https://maps.google.com/?q=Esgl%C3%A9sia+de+la+Mare+de+D%C3%A9u+de+Pompeia+Diagonal+450+Barcelona" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs font-semibold text-brand-sage hover:text-brand-sage-dark transition gap-1.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                <span data-i18n="schedule.maps_btn">Veure a Google Maps</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: TRANSIT / COCKTAIL ARRIVAL -->
+        <div class="relative pl-8 sm:pl-12 group">
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-cream border-4 border-brand-sage/60 group-hover:scale-125 transition-transform"></div>
+          
+          <div class="sm:absolute sm:-left-32 sm:top-0 sm:text-right sm:w-24 mb-1">
+            <span class="inline-block px-2.5 py-1 rounded-md text-xs font-semibold bg-brand-sand text-brand-muted sm:bg-transparent sm:p-0 sm:text-base sm:font-serif">
+              14:00 h
+            </span>
+          </div>
+
+          <div class="bg-white/80 rounded-2xl p-5 sm:p-6 border border-brand-sand space-y-2">
+            <h3 class="font-serif text-xl text-brand-charcoal font-medium" data-i18n="schedule.item2.title">
+              Desplaçament cap a la finca
+            </h3>
+            <p class="text-sm text-brand-muted leading-relaxed" data-i18n="schedule.item2.desc">
+              Temps per acomiadar els nuvis a la sortida de l'església i desplaçar-se cap a La Garriga (uns 40 minuts de trajecte per la C-17). Hi haurà servei d'autocar d'anada i tornada entre Barcelona i Ca n'Illa (podràs indicar si en voldràs fer ús al formulari de confirmació).
+            </p>
+          </div>
+        </div>
+
+        <!-- STEP 3: BANQUET & PARTY -->
+        <div class="relative pl-8 sm:pl-12 group">
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-cream border-4 border-brand-sage group-hover:scale-125 transition-transform"></div>
+          
+          <div class="sm:absolute sm:-left-32 sm:top-0 sm:text-right sm:w-24 mb-1">
+            <span class="inline-block px-2.5 py-1 rounded-md text-xs font-semibold bg-brand-sage-light text-brand-sage-dark sm:bg-transparent sm:p-0 sm:text-base sm:font-serif">
+              15:00 h
+            </span>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-brand-sand space-y-3">
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <h3 class="font-serif text-2xl text-brand-charcoal font-medium" data-i18n="schedule.item3.title">
+                Aperitiu, Banquet i Festa
+              </h3>
+              <span class="text-xs uppercase tracking-wider text-brand-sage font-semibold bg-brand-cream px-3 py-1 rounded-full border border-brand-sand" data-i18n="schedule.item3.badge">
+                La Garriga
+              </span>
+            </div>
+            
+            <p class="text-sm font-medium text-brand-charcoal">
+              <strong data-i18n="schedule.item3.venue">Masia Ca n'Illa</strong>
+            </p>
+            <p class="text-xs text-brand-muted">Camí de Can Illa, s/n, 08530 La Garriga, Barcelona</p>
+
+            <p class="text-sm text-brand-muted leading-relaxed pt-1" data-i18n="schedule.item3.desc">
+              Començarem amb l'aperitiu a l'aire lliure als jardins de la masia, seguit del dinar i la posterior festa amb barra lliure i música fins que el cos aguanti!
+            </p>
+
+            <div class="pt-2 flex flex-wrap gap-3">
+              <a href="https://maps.google.com/?q=Masia+Ca+n%27Illa+La+Garriga" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs font-semibold text-brand-sage hover:text-brand-sage-dark transition gap-1.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                <span data-i18n="schedule.maps_btn">Veure a Google Maps</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LOCATIONS / UBICACIONS CARDS -->
+  <section id="ubicacions" class="screen py-12 sm:py-16 px-4">
+    <div class="max-w-5xl mx-auto space-y-8">
+      
+      <div class="text-center space-y-2">
+        <p class="text-xs uppercase tracking-[0.2em] text-brand-sage font-semibold" data-i18n="locations.tag">Com arribar-hi</p>
+        <h2 class="font-serif text-4xl sm:text-5xl text-brand-charcoal font-light" data-i18n="locations.title">Les Ubicacions</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        
+        <!-- CARD 1: CEREMONY -->
+        <div class="bg-white rounded-3xl p-5 sm:p-6 border border-brand-sand shadow-sm flex flex-col justify-between space-y-5 group">
+          <div class="space-y-4">
+            <!-- Watercolor Illustration (Enlarged & Borderless) -->
+            <div class="w-full h-[30vh] min-h-[11rem] max-h-[22rem] rounded-2xl overflow-hidden bg-white border border-brand-sand/60 relative">
+              <img src="assets/pompeia-original.jpeg" 
+                   alt="Església de Pompeia - Il·lustració" 
+                   loading="lazy"
+                   class="w-full h-full object-cover object-center scale-[135%] group-hover:scale-[125%] transition duration-500">
+            </div>
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-brand-sage" data-i18n="locations.card1.label">La Cerimònia - 12:00 h</span>
+              <h3 class="font-serif text-2xl text-brand-charcoal font-medium mt-1">Església de Pompeia</h3>
+              <p class="text-sm text-brand-muted mt-1">Avinguda Diagonal, 450 (Gràcia / Eixample, Barcelona)</p>
+            </div>
+            <p class="text-sm text-brand-muted leading-relaxed" data-i18n="locations.card1.parking_tips">
+              <strong>Aparcament recomanat:</strong> Parking Saba Bamsa Jardinets de Gràcia. Si veniu en transport públic: Metro L3/L5 Diagonal o FGC Provença.
+            </p>
+          </div>
+
+          <a href="https://maps.google.com/?q=Esgl%C3%A9sia+de+la+Mare+de+D%C3%A9u+de+Pompeia+Diagonal+450+Barcelona" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl text-center text-xs uppercase tracking-wider font-semibold border border-brand-sage text-brand-sage hover:bg-brand-sage hover:text-white transition">
+            <span data-i18n="locations.card1.directions">Com arribar a l'església</span>
+          </a>
+        </div>
+
+        <!-- CARD 2: BANQUET -->
+        <div class="bg-white rounded-3xl p-5 sm:p-6 border border-brand-sand shadow-sm flex flex-col justify-between space-y-5 group">
+          <div class="space-y-4">
+            <!-- Watercolor Illustration (Enlarged & Borderless) -->
+            <div class="w-full h-[30vh] min-h-[11rem] max-h-[22rem] rounded-2xl overflow-hidden bg-white border border-brand-sand/60 relative">
+              <img src="assets/masia-original.jpeg" 
+                   alt="Masia Ca n'Illa - Il·lustració" 
+                   loading="lazy"
+                   class="w-full h-full object-cover object-center scale-[115%] group-hover:scale-[105%] transition duration-500">
+            </div>
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-brand-sage" data-i18n="locations.card2.label">El Banquet - 15:00 h</span>
+              <h3 class="font-serif text-2xl text-brand-charcoal font-medium mt-1">Masia Ca n'Illa</h3>
+              <p class="text-sm text-brand-muted mt-1">Camí de Can Illa, s/n, 08530 La Garriga (Vallès Oriental)</p>
+            </div>
+            <p class="text-sm text-brand-muted leading-relaxed" data-i18n="locations.card2.parking_tips">
+              <strong>Aparcament i accés:</strong> La masia disposa d'aparcament privat gratuït per a tots els convidats. Accés directe i molt còmode des de l'autovia C-17 (sortida La Garriga).
+            </p>
+          </div>
+
+          <a href="https://maps.google.com/?q=Masia+Ca+n%27Illa+La+Garriga" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl text-center text-xs uppercase tracking-wider font-semibold border border-brand-sage text-brand-sage hover:bg-brand-sage hover:text-white transition">
+            <span data-i18n="locations.card2.directions">Com arribar a Ca n'Illa</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DRESS CODE SECTION -->
+  <section id="dresscode" class="screen py-16 bg-brand-sand/30 border-y border-brand-sand px-4">
+    <div class="max-w-3xl mx-auto text-center space-y-6">
+      
+      <div class="inline-flex p-3 rounded-2xl bg-white border border-brand-sand text-brand-sage shadow-sm">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+        </svg>
+      </div>
+
+      <div class="space-y-2">
+        <p class="text-xs uppercase tracking-[0.2em] text-brand-sage font-semibold" data-i18n="dresscode.tag">Guia d'estil</p>
+        <h2 class="font-serif text-3xl sm:text-4xl text-brand-charcoal font-light" data-i18n="dresscode.title">Codi de Vestimenta: Formal / Elegant</h2>
+      </div>
+
+      <div class="bg-white rounded-3xl p-8 border border-brand-sand shadow-sm space-y-4 text-brand-muted text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+        <p data-i18n="dresscode.p1">
+          Com que molts ens heu preguntat: serà un casament d'estil <strong>formal i elegant</strong> (vestit clàssic / vestit de còctel o llarg).
+        </p>
+        <p class="text-sm" data-i18n="dresscode.p2">
+          Tot i això, <em>no hi ha cap etiqueta rígida</em>: l'únic requisit indispensable és que vingueu molt afavorits, ben còmodes i amb moltes ganes de gaudir i ballar tot el dia!
+        </p>
+        <p class="text-xs" data-i18n="dresscode.p3">
+          Ah, només una persona pot anar de blanc, ullet ullet.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DONATIONS / GIFTS SECTION -->
+  <section id="regals" class="screen py-20 bg-brand-sand/35 border-t border-brand-sand px-4">
+    <div class="max-w-3xl mx-auto text-center space-y-8">
+      
+      <!-- Icon badge -->
+      <div class="inline-flex p-3 rounded-2xl bg-white border border-brand-sand text-brand-sage shadow-sm">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V6a2 2 0 10-2 2h2zm0 13l-4-4m4 4l4-4M3 12h18"></path>
+        </svg>
+      </div>
+
+      <div class="space-y-3">
+        <p class="text-xs uppercase tracking-[0.2em] text-brand-sage font-semibold" data-i18n="gifts.tag">El millor regal</p>
+        <h2 class="font-serif text-3xl sm:text-4xl text-brand-charcoal font-light" data-i18n="gifts.title">El millor regal és compartir-ho amb vosaltres</h2>
+        <p class="text-sm sm:text-base text-brand-muted max-w-xl mx-auto leading-relaxed" data-i18n="gifts.desc">
+          La vostra presència serà el nostre millor regal. Tot i així, si ens voleu fer un detall, qualsevol aportació que ens ajudi a començar la nostra vida en família serà rebuda amb molt d'afecte.
+        </p>
+      </div>
+
+      <!-- Account Card -->
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-brand-sand shadow-sm max-w-lg mx-auto space-y-5">
+        
+        <div class="flex items-center justify-between text-xs text-brand-muted border-b border-brand-sand pb-3">
+          <span class="font-medium" data-i18n="gifts.holder_label">Titulars:</span>
+          <span class="font-semibold text-brand-charcoal" data-i18n="gifts.holder">Alegria &amp; Edu</span>
+        </div>
+
+        <div class="space-y-2">
+          <span class="text-[11px] uppercase tracking-wider text-brand-muted font-medium block text-left">IBAN</span>
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-brand-cream/70 border border-brand-sand px-4 py-3 rounded-2xl">
+            <span class="font-mono text-xs sm:text-sm font-semibold text-brand-charcoal tracking-wider select-all break-all text-center sm:text-left">
+              ES32 0182 9003 9102 0737 7004
+            </span>
+            <button onclick="copyIBAN()" class="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-brand-sage text-white text-xs font-semibold hover:bg-brand-sage-dark transition shadow-sm active:scale-95 shrink-0" title="Copiar al portapapeles">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+              <span id="copy-text" data-i18n="gifts.copy_btn">Copiar IBAN</span>
+            </button>
+          </div>
+        </div>
+
+        <p class="text-xs text-brand-muted italic" data-i18n="gifts.concept_note">
+          Concepte suggerit: El vostre nom + un bon desig!
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RSVP SECTION WITH VESTIDO AMARILLO BACKGROUND (LIGHT & CLEAR FACES) -->
+  <section id="rsvp" class="screen screen-end relative text-center px-4 pt-24 pb-12 sm:pb-16 bg-cover overflow-hidden" style="background-image: url('assets/vestido-amarillo.jpeg'); background-position: 10% 45%;">
+    
+    <!-- Luminous gradient: Completely transparent at top so faces & bright dress shine, softly shaded at bottom behind button -->
+    <div class="absolute inset-0 bg-gradient-to-t from-stone-950/75 via-stone-900/15 to-transparent"></div>
+
+    <div class="relative z-10 max-w-xl mx-auto space-y-4">
+      
+      <!-- Minimalist Header just above card -->
+      <div class="space-y-1 text-center">
+        <span class="text-xs uppercase tracking-[0.25em] text-white/90 drop-shadow font-semibold" data-i18n="rsvp.tag">Esperem comptar amb tu</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-white font-light drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]" data-i18n="rsvp.title">Confirmació d'Assistència</h2>
+      </div>
+
+      <!-- Sleek, Compact Semi-Translucent RSVP Card (Leaves top faces completely free) -->
+      <div class="bg-white/90 backdrop-blur-md rounded-2xl p-5 sm:p-7 shadow-2xl border border-white/40 space-y-4 text-center">
+        
+        <div class="space-y-1">
+          <p class="text-xs uppercase tracking-wider text-brand-muted font-medium" data-i18n="rsvp.deadline_tag">Data límit de confirmació</p>
+          <p class="font-serif text-xl sm:text-2xl text-brand-sage-dark font-medium" data-i18n="rsvp.deadline">15 de Desembre de 2026</p>
+        </div>
+
+        <div>
+          <!-- User will update this href with their Google Form URL -->
+          <a id="google-form-link" href="https://docs.google.com/forms/d/e/1FAIpQLScmMoI39_0HIHlrwzWRoRepDwdKTOFTCAxqlHtQbQTHffJzGw/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto px-8 py-3 rounded-full text-xs sm:text-sm font-semibold tracking-wider uppercase bg-brand-sage text-white hover:bg-brand-sage-dark transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+            <span data-i18n="rsvp.form_btn">Obrir Formulari de Confirmació</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+
+        <p class="text-[11px] sm:text-xs text-brand-muted" data-i18n="rsvp.form_note">
+          El formulari et demanarà: noms dels assistents, intoleràncies / menú especial, servei de bus i cançó per a la festa!
+        </p>
+      </div>
+
+      <!-- Direct Contact note -->
+      <p class="text-xs text-stone-200/90 drop-shadow pt-1" data-i18n="rsvp.contact">
+        Tens algun dubte? Pots escriure'ns directament per WhatsApp a qualsevol dels dos.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-12 bg-brand-cream text-center border-t border-brand-sand px-4">
+    <div class="max-w-md mx-auto space-y-4">
+      <p class="font-serif text-2xl text-brand-sage-dark tracking-widest font-semibold" data-i18n="footer.monogram">A &amp; E</p>
+      <p class="text-xs uppercase tracking-widest text-brand-muted">30.01.2027 · Barcelona &amp; La Garriga</p>
+      <p class="text-xs text-brand-muted/70 pt-4" data-i18n="footer.closing">Fet amb molt d'amor per a tots vosaltres</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
