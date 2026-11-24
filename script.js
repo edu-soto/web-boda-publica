@@ -27,11 +27,17 @@ const translations = {
     "schedule.title": "El Programa",
     "schedule.subtitle": "Els horaris clau de la celebració per acompanyar-nos en cada moment",
     "schedule.maps_btn": "Veure a Google Maps",
+    "schedule.maps_btn_pkg": "Veure parking a Google Maps",
+
+    "schedule.item0.title": "Arribada a l'església",
+    "schedule.item0.badge": "Barcelona",
+    "schedule.item0.venue": "Església de la Mare de Déu de Pompeia",
+    "schedule.item0.desc": "Recomanem el Parking Saba Bamsa Jardinets de Gràcia. És possible que us trobeu Gràcia tancada al trànsit, sempre podeu demanar que us moguin la tanca per accedir al parking.",
 
     "schedule.item1.title": "La Cerimònia Religiosa",
     "schedule.item1.badge": "Barcelona",
     "schedule.item1.venue": "Església de la Mare de Déu de Pompeia",
-    "schedule.item1.desc": "Ens donarem el \"sí, vull\" a l'emblemàtica església modernista dels Caputxins. Us demanem puntualitat, ja que la cerimònia començarà puntualment a les 12:00 h.",
+    "schedule.item1.desc": "Església del convent dels Caputxins de Barcelona.",
 
     "schedule.item2.title": "Desplaçament cap a la finca",
     "schedule.item2.desc": "Temps per acomiadar els nuvis a la sortida de l'església i desplaçar-se cap a La Garriga (uns 40 minuts de trajecte per la C-17). Hi haurà servei d'autocar d'anada i tornada entre Barcelona i Ca n'Illa (podràs indicar si en voldràs fer ús al formulari de confirmació).",
@@ -48,13 +54,13 @@ const translations = {
     "locations.card1.directions": "Com arribar a l'església",
 
     "locations.card2.label": "El Banquet - 15:00 h",
-    "locations.card2.parking_tips": "Aparcament i accés: La masia disposa d'aparcament privat gratuït per a tots els convidats. Accés directe i molt còmode des de l'autovia C-17 (sortida La Garriga).",
+    "locations.card2.parking_tips": "Aparcament i accés: La masia es troba en una zona industrial de fàcil accés i amb aparcament al mateix carrer. Accés directe i molt còmode des de l'autovia C-17 (sortida La Garriga).",
     "locations.card2.directions": "Com arribar a Ca n'Illa",
 
-    "dresscode.tag": "Guia d'estil",
-    "dresscode.title": "Codi de Vestimenta: Formal / Elegant",
-    "dresscode.p1": "Com que molts ens heu preguntat: serà un casament d'estil formal i elegant (vestit clàssic / vestit de còctel o llarg).",
-    "dresscode.p2": "Tot i això, no hi ha cap etiqueta rígida: l'únic requisit indispensable és que vingueu molt afavorits, ben còmodes i amb moltes ganes de gaudir i celebrar!",
+    "dresscode.tag": "Codi de Vestimenta",
+    "dresscode.title": "Formal / Elegant",
+    "dresscode.p1": "Com que molts ens heu preguntat: serà un casament d'estil formal i elegant.",
+    "dresscode.p2": "Tot i així, no hi ha cap etiqueta estricta: l'únic requisit indispensable és que vingueu molt afavorits, ben còmodes i amb moltes ganes de gaudir i celebrar!",
     "dresscode.p3": "Ah, només una persona pot anar de blanc, ullet ullet.",
 
     "rsvp.tag": "Esperem comptar amb tu",
@@ -70,7 +76,7 @@ const translations = {
     "gifts.title": "El millor regal és compartir-ho amb vosaltres",
     "gifts.desc": "La vostra presència serà el nostre millor regal. Tot i així, si ens voleu fer un detall, qualsevol aportació que ens ajudi a començar la nostra vida en família serà rebuda amb molt d'afecte.",
     "gifts.holder_label": "Titulars:",
-    "gifts.holder": "Alegria i Edu",
+    "gifts.holder": "Eduardo Soto Ballesteros",
     "gifts.copy_btn": "Copiar IBAN",
     "gifts.concept_note": "Concepte suggerit: El vostre nom + un bon desig!",
 
@@ -105,11 +111,17 @@ const translations = {
     "schedule.title": "El Programa",
     "schedule.subtitle": "Los horarios clave de la celebración para acompañarnos en cada momento",
     "schedule.maps_btn": "Ver en Google Maps",
+    "schedule.maps_btn_pkg": "Ver parking en Google Maps",
+
+    "schedule.item0.title": "Llegada a la iglesia",
+    "schedule.item0.badge": "Barcelona",
+    "schedule.item0.venue": "Església de la Mare de Déu de Pompeia",
+    "schedule.item0.desc": "Recomendamos el Parking Saba Bamsa Jardinets de Gràcia. Es posible que os encontréis el barrio de Gracia cerrado al tráfico, siempre podeis pedir que os aparten la valla para pasar al parking.",
 
     "schedule.item1.title": "La Ceremonia Religiosa",
     "schedule.item1.badge": "Barcelona",
     "schedule.item1.venue": "Església de la Mare de Déu de Pompeia",
-    "schedule.item1.desc": "Nos daremos el \"sí, quiero\" en la emblemática iglesia modernista de los Capuchinos. Os rogamos puntualidad, ya que la ceremonia empezará puntualmente a las 12:00 h.",
+    "schedule.item1.desc": "Iglesia del convento de los Capuchinos de Barcelona.",
 
     "schedule.item2.title": "Trayecto hacia la finca",
     "schedule.item2.desc": "Tiempo para despedir a los novios a la salida de la iglesia y desplazarse hacia La Garriga (unos 40 minutos de trayecto por la C-17). Dispondremos de servicio de autobús de ida y vuelta entre Barcelona y Ca n'Illa (podrás indicar si lo necesitarás en el formulario de confirmación).",
@@ -126,13 +138,13 @@ const translations = {
     "locations.card1.directions": "Cómo llegar a la iglesia",
 
     "locations.card2.label": "El Banquete - 15:00 h",
-    "locations.card2.parking_tips": "Aparcamiento y acceso: La masía cuenta con parking privado gratuito para todos los invitados. Acceso directo y muy cómodo desde la autovía C-17 (salida La Garriga).",
+    "locations.card2.parking_tips": "Aparcamiento y acceso: La masía se encuentra en una zona industrial de fácil acceso y con aparcamiento en la misma calle. Acceso directo y muy cómodo desde la autovía C-17 (salida La Garriga).",
     "locations.card2.directions": "Cómo llegar a Ca n'Illa",
 
-    "dresscode.tag": "Guía de estilo",
-    "dresscode.title": "Código de Vestimenta: Formal / Elegante",
-    "dresscode.p1": "Como muchos nos habéis preguntado por el vestuario: será una boda de estilo formal y elegante (traje clásico / vestido de cóctel o largo).",
-    "dresscode.p2": "Sin embargo, no hay ninguna etiqueta rígida: lo único imprescindible es que vengáis muy favorecidos, cómodos y con ganas de disfrutar y celebrar.", 
+    "dresscode.tag": "Código de Vestimenta",
+    "dresscode.title": "Formal / Elegante",
+    "dresscode.p1": "Como muchos nos habéis preguntado por el vestuario: será una boda de estilo formal y elegante.",
+    "dresscode.p2": "Sin embargo, no hay ninguna etiqueta estricta: lo único imprescindible es que vengáis muy favorecidos, cómodos y con ganas de disfrutar y celebrar.", 
     "dresscode.p3": "Ah, solo una persona puede ir de blanco. Guiño, guiño",
 
     "rsvp.tag": "Esperamos contar contigo",
@@ -148,7 +160,7 @@ const translations = {
     "gifts.title": "El mejor regalo es compartirlo con vosotros",
     "gifts.desc": "Vuestra presencia será nuestro mejor regalo. Si aun así deseáis tener un detalle con nosotros, cualquier aportación para ayudarnos a comenzar nuestra vida en familia será recibida con mucho cariño.",
     "gifts.holder_label": "Titulares:",
-    "gifts.holder": "Alegria y Edu",
+    "gifts.holder": "Eduardo Soto Ballesteros",
     "gifts.copy_btn": "Copiar IBAN",
     "gifts.concept_note": "Concepto sugerido: Vuestro nombre + ¡un buen deseo!",
 
