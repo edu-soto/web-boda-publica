@@ -34,7 +34,7 @@ const translations = {
     "schedule.item0.venue": "Església de la Mare de Déu de Pompeia",
     "schedule.item0.desc": "Recomanem el Parking Saba Bamsa Jardinets de Gràcia. És possible que us trobeu Gràcia tancada al trànsit, sempre podeu demanar que us moguin la tanca per accedir al parking.",
 
-    "schedule.item1.title": "La Cerimònia Religiosa",
+    "schedule.item1.title": "La Cerimònia",
     "schedule.item1.badge": "Barcelona",
     "schedule.item1.venue": "Església de la Mare de Déu de Pompeia",
     "schedule.item1.desc": "Església del convent dels Caputxins de Barcelona.",
@@ -58,7 +58,7 @@ const translations = {
     "locations.card2.directions": "Com arribar a Ca n'Illa",
 
     "dresscode.tag": "Codi de Vestimenta",
-    "dresscode.title": "Formal / Elegant",
+    "dresscode.title": "Formal · Elegant",
     "dresscode.p1": "Com que molts ens heu preguntat: serà un casament d'estil formal i elegant.",
     "dresscode.p2": "Tot i així, no hi ha cap etiqueta estricta: l'únic requisit indispensable és que vingueu molt afavorits, ben còmodes i amb moltes ganes de gaudir i celebrar!",
     "dresscode.p3": "Ah, només una persona pot anar de blanc, ullet ullet.",
@@ -72,7 +72,7 @@ const translations = {
     "rsvp.form_note": "El formulari de Google demanarà: noms dels assistents, intoleràncies / menú especial, servei d'autocar i cançó per a la festa!",
     "rsvp.contact": "Tens algun dubte? Pots escriure'ns directament per WhatsApp a qualsevol dels dos.",
 
-    "gifts.tag": "El millor regal",
+    "gifts.tag": "Un regal",
     "gifts.title": "El millor regal és compartir-ho amb vosaltres",
     "gifts.desc": "La vostra presència serà el nostre millor regal. Tot i així, si ens voleu fer un detall, qualsevol aportació que ens ajudi a començar la nostra vida en família serà rebuda amb molt d'afecte.",
     "gifts.holder_label": "Titulars:",
@@ -118,7 +118,7 @@ const translations = {
     "schedule.item0.venue": "Església de la Mare de Déu de Pompeia",
     "schedule.item0.desc": "Recomendamos el Parking Saba Bamsa Jardinets de Gràcia. Es posible que os encontréis el barrio de Gracia cerrado al tráfico, siempre podeis pedir que os aparten la valla para pasar al parking.",
 
-    "schedule.item1.title": "La Ceremonia Religiosa",
+    "schedule.item1.title": "La Ceremonia",
     "schedule.item1.badge": "Barcelona",
     "schedule.item1.venue": "Església de la Mare de Déu de Pompeia",
     "schedule.item1.desc": "Iglesia del convento de los Capuchinos de Barcelona.",
@@ -142,7 +142,7 @@ const translations = {
     "locations.card2.directions": "Cómo llegar a Ca n'Illa",
 
     "dresscode.tag": "Código de Vestimenta",
-    "dresscode.title": "Formal / Elegante",
+    "dresscode.title": "Formal · Elegante",
     "dresscode.p1": "Como muchos nos habéis preguntado por el vestuario: será una boda de estilo formal y elegante.",
     "dresscode.p2": "Sin embargo, no hay ninguna etiqueta estricta: lo único imprescindible es que vengáis muy favorecidos, cómodos y con ganas de disfrutar y celebrar.", 
     "dresscode.p3": "Ah, solo una persona puede ir de blanco. Guiño, guiño",
@@ -156,7 +156,7 @@ const translations = {
     "rsvp.form_note": "El formulario de Google te solicitará: nombres de los asistentes, intolerancias / menú especial, uso de autobús y una canción para la fiesta.",
     "rsvp.contact": "¿Tienes alguna duda? Puedes escribirnos directamente por WhatsApp a cualquiera de los dos.",
 
-    "gifts.tag": "El mejor regalo",
+    "gifts.tag": "Un regalo",
     "gifts.title": "El mejor regalo es compartirlo con vosotros",
     "gifts.desc": "Vuestra presencia será nuestro mejor regalo. Si aun así deseáis tener un detalle con nosotros, cualquier aportación para ayudarnos a comenzar nuestra vida en familia será recibida con mucho cariño.",
     "gifts.holder_label": "Titulares:",
